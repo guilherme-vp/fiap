@@ -1,4 +1,4 @@
-boleto = int(input("Digite o valor do boleto: "))
+boleto = float(input("Digite o valor do boleto: "))
 
 jurosPorcentagem = int(input("Digite o valor dos juros em porcentagem: "))
 

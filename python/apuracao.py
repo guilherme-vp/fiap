@@ -11,17 +11,17 @@ totalVotos = candidatoA + candidatoB + candidatoC + votosBrancos + votosNulos
 
 print("\nO número total de eleitores é de:", totalVotos)
 
-porcentualCandidatoA = candidatoA/totalVotos * 100
-porcentualCandidatoB = candidatoB/totalVotos * 100
-porcentualCandidatoC = candidatoC/totalVotos * 100
-porcentualBranco = votosBrancos/totalVotos * 100
-porcentualNulos = votosNulos/totalVotos * 100
+porcentualCandidatoA = round(candidatoA/totalVotos * 100)
+porcentualCandidatoB = round(candidatoB/totalVotos * 100)
+porcentualCandidatoC = round(candidatoC/totalVotos * 100)
+porcentualBranco = round(votosBrancos/totalVotos * 100)
+porcentualNulos = round(votosNulos/totalVotos * 100)
 
 print("O porcentual de votos que o candidato A recebeu é de:",
-      round(porcentualCandidatoA))
+      porcentualCandidatoA, "%")
 print("O porcentual de votos que o candidato B recebeu é de:",
-      round(porcentualCandidatoB))
+      porcentualCandidatoB, "%")
 print("O porcentual de votos que o candidato C recebeu é de:",
-      round(porcentualCandidatoC))
-print("O porcentual de votos brancos é de:", round(porcentualBranco))
-print("O porcentual de votos nulos é de:", round(porcentualNulos))
+      porcentualCandidatoC, "%")
+print("O porcentual de votos brancos é de:", porcentualBranco, "%")
+print("O porcentual de votos nulos é de:", porcentualNulos, "%")
