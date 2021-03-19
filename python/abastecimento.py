@@ -1,7 +1,9 @@
-valorAbastecimento = int(input("Insira o valor de abastecimento: R$"))
+valorAbastecimento = float(input("Insira o valor de abastecimento: R$ "))
 valorCombustivel = float(input("insira o preço do litro do combustível: R$ "))
 
-resultado = valorAbastecimento/valorAbastecimento
+resultado = round(valorAbastecimento/valorCombustivel)
 
-print("Você comprará " + round(resultado) + "litros")
-
+if resultado == 1:
+    print("Você comprará", resultado, "litro")
+else:
+    print("Você comprará", resultado, "litros")
