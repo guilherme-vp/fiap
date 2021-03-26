@@ -6,3 +6,6 @@
 - Os exercícios de python disponibilizados durante as aulas estão presentes no diretório [python](./python);
   - Obs: É necessário executar os arquivos via pyCharm ou via python utilizando variáveis de ambiente virtuais ou locais da sua máquina.
 - O exercício de checkpoint está presente no diretório [checkpoint](./checkpoint), feito integralmente em python.
+
+----
+Feito com amor - **Guilherme Vieira** ❤️
