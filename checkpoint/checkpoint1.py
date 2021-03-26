@@ -1,5 +1,3 @@
-import math as m
-
 nomeAtendente = input("Digite o nome do(a) recepcionista: ")
 qtdYoga = int(
     input("Digite a quantidade de pessoas que frequentaram a atividade de yoga: "))
@@ -13,7 +11,7 @@ qtdTotal = qtdYoga + qtdGinastica + qtdHidro + qtdNatacao
 
 
 def getPorcentagem(qtd):
-    porcentagemTotal = m.ceil(qtd/qtdTotal * 100)
+    porcentagemTotal = round(qtd/qtdTotal * 100, 2)
     return porcentagemTotal
 
 
