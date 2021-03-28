@@ -1,0 +1,12 @@
+# main
+/node_modules
+yarn.lock
+yarn-error.log
+
+# project
+.env
+dist
+coverage
+
+# etc
+*.DS_Store
