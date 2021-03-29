@@ -1,0 +1,29 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Ninja {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  nivel     String?  @default("Academia")
+  idade     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Vila      Vila?    @relation(fields: [vilaId], references: [id])
+  vilaId    Int?
+}
+
+model Vila {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  lider     String
+  shinobi   String?
+  Ninja     Ninja[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
