@@ -6,14 +6,21 @@
   "scripts": {
     "dev": "env-cmd ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/main.ts",
     "build": "rm -rf dist && tsc",
-    "start": "env-cmd ts-node -r tsconfig-paths/register src/main.ts"
+    "start": "env-cmd ts-node -r tsconfig-paths/register src/main.ts",
+    "prisma:migrate": "prisma migrate dev --name",
+    "migrate:generate": "prisma migrate dev --preview-feature --name",
+    "migrate:deploy": "prisma migrate deploy",
+    "migrate:reset": "prisma migrate reset --preview-feature",
+    "database:generate": "prisma generate",
+    "run:seeds": "prisma db seed --preview-feature"
   },
   "dependencies": {
+    "@prisma/client": "^2.19.0",
     "@typegoose/typegoose": "^7.6.0",
     "cors": "^2.8.5",
     "env-cmd": "^10.1.0",
     "express": "^4.17.1",
-    "mongoose": "^5.12.2"
+    "prisma": "^2.19.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
