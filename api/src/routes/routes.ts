@@ -1,6 +1,6 @@
-import { NinjaController } from 'controllers/ninja'
-import { VilaController } from 'controllers/vila'
 import { Router } from 'express'
+import { NinjaController } from '../controllers/ninja'
+import { VilaController } from '../controllers/vila'
 
 const ninjaController = new NinjaController()
 const vilaController = new VilaController()

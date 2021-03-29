@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { prisma } from 'database'
-import { Ninja } from 'models'
+import { prisma } from '../database'
+import { Ninja } from '../models'
 
 export class NinjaController {
 	async create(req: Request, res: Response): Promise<Response<Ninja>> {

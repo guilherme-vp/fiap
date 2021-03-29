@@ -1,6 +1,6 @@
-import { prisma } from 'database'
 import { Request, Response } from 'express'
-import { Vila } from 'models'
+import { prisma } from '../database'
+import { Vila } from '../models'
 
 export class VilaController {
 	async get(req: Request, res: Response): Promise<Response<Vila | Vila[]>> {
