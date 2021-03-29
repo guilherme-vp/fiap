@@ -1,9 +1,14 @@
-import { Ninja } from 'controllers/ninja'
+import { NinjaController } from 'controllers/ninja'
+import { VilaController } from 'controllers/vila'
 import { Router } from 'express'
 
-const ninjaController = new Ninja()
+const ninjaController = new NinjaController()
+const vilaController = new VilaController()
 
-export const routes = Router()
+const routes = Router()
 
-routes.post('/create', ninjaController.create)
-routes.get('/receive/:nome', ninjaController.get)
+routes.post('/ninja', ninjaController.create)
+routes.get('/ninja', ninjaController.getNinja)
+routes.get('/vila', vilaController.get)
+
+export default routes
