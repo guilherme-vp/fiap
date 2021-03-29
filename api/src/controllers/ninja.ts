@@ -1,24 +1,71 @@
-export class Ninja {
-	async create(req, res) {
+import { Request, Response } from 'express'
+import { prisma } from 'database'
+import { Ninja } from 'models'
+
+export class NinjaController {
+	async create(req: Request, res: Response): Promise<Response<Ninja>> {
 		const { nome, idade, vila, nivel } = req.body
 
-		return res.json(req.body)
+		const findVila = await prisma.vila.findFirst({
+			where: {
+				nome: vila
+			}
+		})
+
+		if (!findVila) {
+			return res.status(404).json({
+				error: 'Essa vila não existe.'
+			})
+		}
+
+		const createNinja = await prisma.ninja.create({
+			data: {
+				idade,
+				nome,
+				nivel,
+				vilaId: findVila.id
+			},
+			include: {
+				Vila: true
+			}
+		})
+
+		const createdNinjas = await prisma.ninja.findUnique({
+			where: { id: createNinja.id },
+			include: {
+				Vila: true
+			}
+		})
+
+		return res.json(createdNinjas)
 	}
 
-	async get(req, res) {
-		const { nome } = req.params
+	async getNinja(req: Request, res: Response): Promise<Response<Ninja | Ninja[]>> {
+		const { nome: ninjaName } = req.query
 
-		const users = [
-			{
-				nome: 'Guilherme',
-				idade: 19,
-				vila: 'Folha',
-				nivel: 'Shinobi'
+		if (ninjaName) {
+			const findNinja = await prisma.ninja.findFirst({
+				where: { nome: ninjaName as string }
+			})
+
+			if (!findNinja) {
+				return res.status(404).json({
+					error: 'Nenhum ninja encontrado.'
+				})
 			}
-		]
 
-		const receivedUser = users.filter(user => user.nome === nome)
+			return res.json(findNinja)
+		}
 
-		return res.json(receivedUser)
+		const findNinjas = await prisma.ninja.findMany({
+			orderBy: {
+				id: 'asc'
+			},
+			include: {
+				Vila: true
+			}
+		})
+
+		return res.json(findNinjas)
 	}
 }
